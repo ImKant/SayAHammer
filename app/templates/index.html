@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>List of pages
+    <ul>
+        {% for page in pages %}
+        <li>
+            <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
+        </li>
+        {% else %}
+        <li>No post.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+$ vi app/templates/page.html
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ page.title }}</h2>
+    {{ page.html|safe }}
+{% endblock content %}
